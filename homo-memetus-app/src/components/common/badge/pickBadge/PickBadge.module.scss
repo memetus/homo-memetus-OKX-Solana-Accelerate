@@ -1,0 +1,28 @@
+.badge {
+  background-color: var(--CONSTANT);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  .badge-pick-text {
+    font-size: 1rem;
+    color: var(--DYNAMIC);
+    font-family: var(--FONT-FRAGMENT-MONO);
+  }
+
+  .badge-pnl-text {
+    font-size: 0.9rem;
+    font-family: var(--FONT-FRAGMENT-MONO);
+
+    &.earning {
+      color: var(--GREEN);
+    }
+
+    &.losing {
+      color: var(--RED);
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '@/styles/_mixin.scss';
+
+.badge-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--DYNAMIC);
+  border: 1px solid var(--GRAY-2);
+  border-radius: 50%;
+  width: 2.2rem;
+  aspect-ratio: 1/1;
+}
+
+@include tablet {
+  .badge-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--DYNAMIC);
+    border: 1px solid var(--GRAY-2);
+    border-radius: 50%;
+    width: 1.8rem;
+    aspect-ratio: 1/1;
+    font-size: 1rem;
+  }
+}
+
+@include mobile {
+  .badge-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--DYNAMIC);
+    border: 1px solid var(--GRAY-2);
+    border-radius: 50%;
+    width: 1.6rem;
+    aspect-ratio: 1/1;
+    font-size: 0.9rem;
+  }
+}

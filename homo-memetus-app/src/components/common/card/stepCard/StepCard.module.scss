@@ -1,0 +1,129 @@
+@import '@/styles/_mixin.scss';
+
+.card-wrapper {
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr 12fr;
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  &:enabled {
+    &.highlight {
+      background: var(--DYNAMIC-OPACITY-1);
+    }
+
+    &:hover {
+      cursor: pointer;
+      background: var(--DYNAMIC-OPACITY-2);
+    }
+  }
+
+  .left-container {
+    width: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    .check-icon {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 0.2rem;
+
+      .icon {
+        width: 1.4rem;
+        height: 1.4rem;
+        object-fit: contain;
+      }
+    }
+
+    .check-line {
+      width: 1px;
+      border-radius: 3px;
+      height: 90%;
+      margin-top: 1rem;
+      background-color: var(--DYNAMIC);
+    }
+  }
+
+  .text-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.3rem;
+
+    .step-index {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--DYNAMIC);
+      font-family: var(--FONT-TANKER);
+      text-align: start;
+    }
+
+    .step-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--DYNAMIC);
+      font-family: var(--FONT-TANKER);
+      text-align: start;
+    }
+
+    .step-desc {
+      font-size: .9rem;
+      font-weight: 400;
+      color: var(--DYNAMIC);
+      font-family: var(--FONT-FRAGMENT-MONO);
+      line-height: 1.3rem;
+      text-align: start;
+    }
+  }
+}
+
+@media (max-width: 1650px) {
+  .card-wrapper {
+    .text-container {
+      .step-desc {
+        display: none;
+      }
+    }
+  }
+}
+
+@include laptop {
+    .card-wrapper {
+    .text-container {
+      .step-title {
+        display: none;
+      }
+      .step-desc {
+        display: none;
+      }
+    }
+  }
+}
+
+@include tablet {
+    .card-wrapper {
+    .text-container {
+      .step-desc {
+        display: none;
+      }
+    }
+  }
+}
+
+@include mobile {
+    .card-wrapper {
+    .text-container {
+      .step-desc {
+        display: none;
+      }
+    }
+  }
+}

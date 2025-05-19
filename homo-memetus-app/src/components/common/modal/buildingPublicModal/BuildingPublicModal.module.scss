@@ -1,0 +1,121 @@
+@import '@/styles/_mixin.scss';
+
+.modal-wrapper {
+  position: fixed;
+  top: 8rem;
+  left: 1rem;
+  width: 32rem;
+  min-width: 24rem;
+  z-index: 999999999999999;
+
+  .modal {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    backdrop-filter: blur(3px);
+
+    &.close {
+      animation-name: fade-out;
+      animation-duration: 0.3s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+      gap: 0.5rem;
+    }
+
+    &.open {
+      animation-name: fade-in;
+      animation-duration: 0.3s;
+      animation-timing-function: ease;
+      animation-fill-mode: forwards;
+    }
+
+    &.none {
+      display: none;
+    }
+  }
+
+  .dropdown-button {
+    width: 3.25rem;
+    height: 3.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+
+    &:hover {
+      background-color: var(--DYNAMIC-OPACITY-1);
+      cursor: pointer;
+    }
+
+    .dropdown-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+      fill: var(--DYNAMIC);
+      transform: rotateY(0deg);
+
+      &.open {
+        transform: rotateX(-180deg);
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    transform: translate(0, -100%);
+    opacity: 0;
+    display: none;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 1;
+    display: flex;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+    display: flex;
+  }
+  100% {
+    transform: translate(0, -100%);
+    opacity: 0;
+    display: none;
+  }
+}
+
+@media (max-width: 1650px) {
+  .modal-wrapper {
+    width: 20rem;
+    min-width: 20rem;
+  }
+}
+
+@include laptop {
+  .modal-wrapper {
+    width: 8rem;
+    min-width: 8rem;
+  }
+  @media (max-width: 1000px) {
+    .modal-wrapper {
+      display: none;
+    }
+  }
+}
+
+@include tablet {
+  .modal-wrapper {
+    display: none;
+  }
+}
+
+@include mobile {
+  .modal-wrapper {
+    display: none;
+  }
+}

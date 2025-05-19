@@ -1,0 +1,287 @@
+@import '@/styles/_mixin.scss';
+
+.client-container {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8rem;
+
+  .client-inner {
+    width: 80rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+
+    .text-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 3rem;
+
+      .main-title {
+        font-size: 6.5rem;
+        font-weight: 700;
+        color: var(--DYNAMIC);
+        font-family: var(--FONT-TANKER);
+        letter-spacing: 4px;
+      }
+
+      .main-desc-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 3rem;
+
+        .main-desc {
+          text-align: center;
+          font-size: 1.2rem;
+          font-weight: 300;
+          color: var(--DYNAMIC-OPACITY-9);
+          font-family: var(--FONT-FRAGMENT-MONO);
+        }
+      }
+    }
+
+    .toppicks-wrapper {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
+
+    .realagent-wrapper {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: 1rem;
+
+      .list-title {
+        font-size: 2.2rem;
+        color: var(--DYNAMIC);
+        font-family: var(--FONT-TANKER);
+        margin-bottom: 1rem;
+      }
+
+      .container-wrapper {
+        width: 100%;
+        margin-top: 3rem;
+      }
+
+      .graph-wrapper {
+        width: 100%;
+        height: auto;
+        margin-top: 4rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 1rem;
+
+        .graph-header {
+          height: 4rem;
+          display: flex;
+          align-items: flex-start;
+          justify-content: flex-start;
+          gap: 2rem;
+
+          .title-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .list-title {
+              font-size: 2.2rem;
+              color: var(--DYNAMIC);
+              font-family: var(--FONT-TANKER);
+            }
+          }
+
+          .button-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+
+            .day-wrapper {
+              margin-top: 0.3rem;
+              padding: 0.5rem 1rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: var(--DYNAMIC-OPACITY-2);
+              border-radius: 0.5rem;
+
+              &.active {
+                background-color: var(--DYNAMIC-OPACITY-3);
+              }
+
+              &:hover {
+                cursor: pointer;
+                background-color: var(--DYNAMIC-OPACITY-5);
+              }
+
+              .day-text {
+                font-size: 1.2rem;
+                color: var(--DYNAMIC);
+                font-family: var(--FONT-FRAGMENT-MONO);
+              }
+            }
+          }
+        }
+      }
+
+      .activity-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        margin-top: 4rem;
+
+        .list-title {
+          font-size: 2.2rem;
+          color: var(--DYNAMIC);
+          font-family: var(--FONT-TANKER);
+        }
+      }
+    }
+  }
+}
+
+@include laptop {
+  .client-container {
+    .client-inner {
+      width: 80%;
+
+      .text-wrapper {
+        .main-title {
+          font-size: 3.5rem;
+        }
+
+        .main-desc-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 2rem;
+
+          .main-desc {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--DYNAMIC-OPACITY-9);
+            font-family: var(--FONT-FRAGMENT-MONO);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .client-container {
+      .client-inner {
+        width: 80%;
+
+        .text-wrapper {
+          .main-title {
+            font-size: 3.5rem;
+          }
+
+          .main-desc-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+
+            .main-desc {
+              text-align: center;
+              font-size: 1rem;
+              font-weight: 300;
+              color: var(--DYNAMIC-OPACITY-9);
+              font-family: var(--FONT-FRAGMENT-MONO);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .client-container {
+    .client-inner {
+      width: 80%;
+
+      .text-wrapper {
+        .main-title {
+          font-size: 2rem;
+          text-align: center;
+        }
+
+        .main-desc-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 2rem;
+
+          .main-desc {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--DYNAMIC-OPACITY-9);
+            font-family: var(--FONT-FRAGMENT-MONO);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mobile {
+  .client-container {
+    .client-inner {
+      width: 80%;
+
+      .text-wrapper {
+        .main-title {
+          text-align: center;
+          font-size: 1.5rem;
+        }
+
+        .main-desc-wrapper {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 2rem;
+
+          .main-desc {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 300;
+            color: var(--DYNAMIC-OPACITY-9);
+            font-family: var(--FONT-FRAGMENT-MONO);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,64 @@
+@import '@/styles/_mixin.scss';
+
+.wrapper-container {
+  width: 100vw;
+
+  .wrapper-inner {
+    width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-size: cover;
+    background-attachment: fixed;
+    object-fit: cover;
+
+    .video-source {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+  }
+
+  .sub-nav-wrapper {
+    position: fixed;
+    bottom: 2rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@include laptop {
+  @media (max-width: 800px) {
+    .wrapper-container {
+      .sub-nav-wrapper {
+        opacity: 0;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .wrapper-container {
+    .sub-nav-wrapper {
+      opacity: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+}
+
+@include mobile {
+  .wrapper-container {
+    .sub-nav-wrapper {
+      opacity: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+  }
+}

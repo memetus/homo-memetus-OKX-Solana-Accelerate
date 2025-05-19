@@ -1,0 +1,21 @@
+{
+  "id": 1,
+  "name": "Agent 1",
+  "symbol": "AGE",
+  "description": "Agent 1 is a great agent that can help you with your needs. ",
+  "generation": 1,
+  "assetsValue": 1000,
+  "realizedPnl": 500,
+  "unrealizedPnl": 200,
+  "totalPnl": 59,
+  "topPicks": [
+    {
+      "symbol": "AAPL",
+      "pnl": 40
+    },
+    {
+      "symbol": "GOOGL",
+      "pnl": 30
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+.input-container {
+  width: 100%;
+  height: 3rem;
+  border: 1px solid var(--DYNAMIC);
+  background-color: var(--CONSTANT);
+  border-radius: 0.55rem;
+  position: relative;
+
+  .input {
+    width: 100%;
+    height: 100%;
+    padding-left: 1rem;
+    color: var(--DYNAMIC);
+    font-family: Arial;
+
+    &::placeholder {
+      color: var(--DYNAMIC-OPACITY-6);
+    }
+  }
+
+  .spinner-wrapper {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(calc(100% - 4.8rem), -50%);
+  }
+
+  .button {
+    width: 2.4rem;
+    aspect-ratio: 1/1;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-0.5rem, -50%);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    .button-icon {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+
+    &:hover {
+      background-color: var(--DYNAMIC-OPACITY-1);
+    }
+  }
+}

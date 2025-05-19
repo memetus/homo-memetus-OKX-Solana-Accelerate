@@ -1,0 +1,173 @@
+@import '@/styles/_mixin.scss';
+
+.assistant-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .inner {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+
+    .badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(calc(-100% - 2rem), 0);
+    }
+  }
+}
+.assistant-text {
+  text-align: start;
+  font-family: Arial;
+  font-size: 1.3rem;
+  color: var(--DYNAMIC);
+  font-weight: 300;
+  line-height: 2rem;
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #aaaaaa,
+    #767676,
+    #4d4d4d,
+    #767676,
+    #aaaaaa,
+    #ffffff
+  );
+  background-size: 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-animation 2s infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@include tablet {
+  .assistant-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+
+      .badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(calc(-100% - 1rem), 0);
+      }
+    }
+  }
+  .assistant-text {
+    text-align: start;
+    font-family: Arial;
+    font-size: 1rem;
+    color: var(--DYNAMIC);
+    font-weight: 300;
+    line-height: 2rem;
+    background: linear-gradient(
+      90deg,
+      #ffffff,
+      #aaaaaa,
+      #767676,
+      #4d4d4d,
+      #767676,
+      #aaaaaa,
+      #ffffff
+    );
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 2s infinite;
+  }
+
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+@include mobile {
+  .assistant-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .inner {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      position: relative;
+
+      .badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(calc(-100% - 1rem), 0);
+      }
+    }
+  }
+  .assistant-text {
+    text-align: start;
+    font-family: Arial;
+    font-size: 1rem;
+    color: var(--DYNAMIC);
+    font-weight: 300;
+    line-height: 2rem;
+    background: linear-gradient(
+      90deg,
+      #ffffff,
+      #aaaaaa,
+      #767676,
+      #4d4d4d,
+      #767676,
+      #aaaaaa,
+      #ffffff
+    );
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 2s infinite;
+  }
+
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}

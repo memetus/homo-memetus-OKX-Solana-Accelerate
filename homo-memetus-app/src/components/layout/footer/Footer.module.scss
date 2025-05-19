@@ -1,0 +1,24 @@
+@import '@/styles/_mixin.scss';
+
+.footer-container {
+  width: 100%;
+  height: 18em;
+}
+
+@include laptop {
+  .footer-container {
+    height: 16rem;
+  }
+}
+
+@include tablet {
+  .footer-container {
+    height: 12rem;
+  }
+}
+
+@include mobile {
+  .footer-container {
+    height: 10rem;
+  }
+}

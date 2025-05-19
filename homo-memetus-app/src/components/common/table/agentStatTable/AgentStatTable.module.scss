@@ -1,0 +1,136 @@
+@import '@/styles/_mixin.scss';
+
+.table-wrapper {
+  width: 100%;
+  border: 1px solid var(--DYNAMIC);
+  border-radius: 1rem;
+  overflow: hidden;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    display: table;
+
+    .table-header {
+      width: 100%;
+      height: 3rem;
+      background-color: var(--DYNAMIC);
+      display: table;
+
+      .tr {
+        width: 100%;
+        display: table;
+        table-layout: fixed;
+        height: 3rem;
+
+        .th {
+          text-align: start;
+          border: none;
+          padding-left: 1rem;
+          color: var(--CONSTANT);
+          font-family: var(--FONT-FRAGMENT-MONO);
+        }
+      }
+    }
+
+    .table-body {
+      width: 100%;
+      display: table;
+
+      .tr {
+        width: 100%;
+        height: 4rem;
+        display: table;
+        table-layout: fixed;
+
+        .td {
+          font-size: 1.1rem;
+          padding-left: 1rem;
+          border: none;
+          color: var(--DYNAMIC);
+          font-family: var(--FONT-FRAGMENT-MONO);
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          &.isPlus {
+            color: var(--GREEN);
+          }
+          &.isMinus {
+            color: var(--RED);
+          }
+        }
+        .name {
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .date {
+          color: var(--GRAY-8);
+        }
+      }
+    }
+  }
+}
+
+@include laptop {
+  .table-container {
+    width: 90%;
+  }
+
+  @media (max-width: 1000px) {
+    .table-wrapper {
+      width: 100%;
+      overflow-x: scroll;
+
+      .table {
+        min-width: 72rem;
+        border-collapse: collapse;
+        table-layout: fixed;
+        display: table;
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .table-wrapper {
+      width: 100%;
+      overflow-x: scroll;
+
+      .table {
+        min-width: 68rem;
+        border-collapse: collapse;
+        table-layout: fixed;
+        display: table;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .table-wrapper {
+    width: 100%;
+    overflow-x: scroll;
+
+    .table {
+      min-width: 64rem;
+      border-collapse: collapse;
+      table-layout: fixed;
+      display: table;
+    }
+  }
+}
+
+@include mobile {
+  .table-wrapper {
+    width: 100%;
+    overflow-x: scroll;
+
+    .table {
+      min-width: 60rem;
+      border-collapse: collapse;
+      table-layout: fixed;
+      display: table;
+    }
+  }
+}

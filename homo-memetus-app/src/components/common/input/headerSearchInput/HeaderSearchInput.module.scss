@@ -1,0 +1,39 @@
+.header-search-input-container {
+  width: 36rem;
+  height: 3rem;
+  border-radius: 0.525rem;
+  position: relative;
+
+  .header-search-input {
+    width: 100%;
+    height: 100%;
+    border-radius: 0.525rem;
+    background-color: var(--GRAY-2);
+    padding-left: 1rem;
+
+    &::placeholder {
+      color: var(--DYNAMIC-OPACITY-3);
+    }
+
+    color: var(--DYNAMIC);
+  }
+  .icon-container {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    width: 1.5rem;
+    height: 1.5rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    .icon {
+      width: 100%;
+      height: 100%;
+      stroke: var(--DYNAMIC);
+      stroke-width: 2;
+    }
+  }
+}

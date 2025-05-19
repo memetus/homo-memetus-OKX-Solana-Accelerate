@@ -1,0 +1,18 @@
+.badge-container {
+  padding: 0.6rem 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--DYNAMIC);
+  border-radius: 2rem;
+
+  .badge-text {
+    font-size: 1.15rem;
+    color: var(--CONSTANT);
+    font-family: var(--FONT-TANKER);
+
+    &.over {
+      color: red;
+    }
+  }
+}

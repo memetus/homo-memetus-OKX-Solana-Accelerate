@@ -1,0 +1,13 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  .logo-text {
+    font-family: var(--FONT-TANKER);
+    color: var(--DYNAMIC);
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}

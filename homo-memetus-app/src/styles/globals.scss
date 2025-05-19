@@ -1,0 +1,39 @@
+@use '@/styles/_theme.scss' as *;
+@import '@/styles/_font.scss';
+@import '@/styles/_mixin.scss';
+
+:root {
+  font-size: 12px;
+
+  --FONT-TANKER: 'Tanker';
+  --FONT-CONSOLAS: 'Consolas';
+  --FONT-FRAGMENT-MONO: 'Fragment-Mono';
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 12px;
+}
+
+body {
+  width: 100vw;
+  font-size: 1rem;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none !important; /* Firefox */
+  -ms-overflow-style: none !important; /* IE and Edge */
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Opera */
+}

@@ -1,0 +1,11 @@
+.client-container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+
+  .client-inner {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+  }
+}

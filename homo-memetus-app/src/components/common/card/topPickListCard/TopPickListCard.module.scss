@@ -1,0 +1,137 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--GRAY-1);
+  padding: 1.5rem;
+  gap: 0.5rem;
+
+  .card-header {
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .card-title-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 0.5rem;
+
+      .card-title {
+        font-size: 1.1rem;
+        color: var(--DYNAMIC);
+        font-family: var(--FONT-FRAGMENT-MONO);
+      }
+
+      .card-address {
+        font-size: 0.9rem;
+        color: var(--DYNAMIC-OPACITY-6);
+        font-family: var(--FONT-FRAGMENT-MONO);
+        position: relative;
+
+        .copy-button {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(2rem, -50%);
+          width: 1rem;
+          height: 1rem;
+          outline: none;
+          border: none;
+          background-color: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          .copy-button-icon {
+            width: 1.3rem;
+            height: 1.3rem;
+            stroke: var(--DYNAMIC-OPACITY-6);
+            stroke-width: 1;
+          }
+
+          &:hover {
+            .copy-button-icon {
+              stroke: var(--DYNAMIC-OPACITY-9);
+            }
+          }
+        }
+      }
+    }
+
+    .card-pnl-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: flex-start;
+      gap: 0.5rem;
+
+      .card-pnl {
+        font-size: 1.3rem;
+        font-family: var(--FONT-TANKER);
+
+        &.earning {
+          color: var(--GREEN);
+        }
+
+        .losing {
+          color: var(--RED);
+        }
+      }
+
+      .card-label {
+        font-size: 0.9rem;
+        color: var(--DYNAMIC-OPACITY-6);
+        font-family: var(--FONT-FRAGMENT-MONO);
+      }
+    }
+  }
+
+  .card-text-wrapper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    .card-text {
+      font-size: 0.9rem;
+      color: var(--DYNAMIC);
+      font-family: var(--FONT-FRAGMENT-MONO);
+      width: 100%;
+      text-align: left;
+    }
+  }
+
+  .card-footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+
+    .card-footer-label {
+      font-size: 0.9rem;
+      color: var(--DYNAMIC-OPACITY-7);
+      font-family: var(--FONT-FRAGMENT-MONO);
+    }
+
+    .card-fund-text {
+      font-size: 0.9rem;
+      color: var(--DYNAMIC);
+      font-family: var(--FONT-FRAGMENT-MONO);
+      text-decoration: underline;
+    }
+  }
+}

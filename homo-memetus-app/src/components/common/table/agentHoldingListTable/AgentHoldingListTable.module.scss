@@ -1,0 +1,233 @@
+@import '@/styles/_mixin.scss';
+
+.table-container {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  .table-wrapper {
+    width: 100%;
+    border: 1px solid var(--DYNAMIC);
+    margin-top: 1rem;
+    border-radius: 1rem;
+    overflow: hidden;
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+      display: table;
+
+      .table-header {
+        width: 100%;
+        height: 3rem;
+        background-color: var(--DYNAMIC);
+        display: table;
+
+        .tr {
+          width: 100%;
+          display: table;
+          table-layout: fixed;
+          height: 3rem;
+
+          .th {
+            text-align: start;
+            border: none;
+            padding-left: 1rem;
+            color: var(--CONSTANT);
+            font-family: var(--FONT-FRAGMENT-MONO);
+          }
+        }
+      }
+
+      .table-body {
+        width: 100%;
+        height: 40rem;
+        display: table;
+
+        .tr-loading {
+          width: 100%;
+          height: 100%;
+          display: block;
+          .td {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--DYNAMIC);
+            font-family: var(--FONT-FRAGMENT-MONO);
+          }
+        }
+
+        .tr {
+          width: 100%;
+          height: 4rem;
+          display: table;
+          table-layout: fixed;
+          border-bottom: 1px solid var(--DYNAMIC);
+
+          .td {
+            font-size: 1.1rem;
+            padding-left: 1rem;
+            border: none;
+            color: var(--DYNAMIC);
+            font-family: var(--FONT-FRAGMENT-MONO);
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
+            .type {
+              width: 4.25rem;
+              height: 2.05rem;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 0.4rem;
+              font-weight: 300;
+              font-size: 1rem;
+
+              &.buy {
+                background-color: rgb(53, 188, 0, 0.3);
+                color: var(--GREEN);
+              }
+
+              &.sell {
+                background-color: rgb(223, 0, 0, 0.3);
+                color: var(--RED);
+              }
+            }
+
+            &.isPlus {
+              color: var(--GREEN);
+            }
+
+            &.isMinus {
+              color: var(--RED);
+            }
+          }
+
+          .name {
+            &:hover {
+              cursor: pointer;
+            }
+          }
+
+          .date {
+            color: var(--GRAY-8);
+          }
+
+          &.isLast {
+            border: none;
+          }
+        }
+      }
+    }
+  }
+
+  .update-time-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    .total-text {
+      font-size: 1.2rem;
+      color: var(--DYNAMIC);
+      font-family: var(--FONT-FRAGMENT-MONO);
+      margin-left: 0.5rem;
+
+      .name-text {
+        font-size: 1rem;
+        color: var(--DYNAMIC-OPACITY-7);
+        margin-left: 0.5rem;
+      }
+    }
+    .update-time-text {
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--DYNAMIC-OPACITY-5);
+      font-family: var(--FONT-FRAGMENT-MONO);
+      margin-right: 0.5rem;
+    }
+  }
+}
+
+@include laptop {
+  .table-container {
+    width: 100%;
+  }
+
+  @media (max-width: 1000px) {
+    .table-container {
+      width: 100%;
+      .table-wrapper {
+        width: 100%;
+        overflow-x: scroll;
+        .table {
+          min-width: 72rem;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .table-container {
+      width: 100%;
+      .table-wrapper {
+        width: 100%;
+        margin-top: 0.5rem;
+        overflow-x: scroll;
+        .table {
+          min-width: 72rem;
+        }
+      }
+
+      .update-time-wrapper {
+        display: none;
+      }
+    }
+  }
+}
+
+@include tablet {
+  .table-container {
+    width: 100%;
+
+    .table-wrapper {
+      width: 100%;
+      margin-top: 0.5rem;
+      overflow-x: scroll;
+      .table {
+        min-width: 68rem;
+      }
+    }
+
+    .update-time-wrapper {
+      display: none;
+    }
+  }
+}
+
+@include mobile {
+  .table-container {
+    width: 100%;
+
+    .table-wrapper {
+      width: 100%;
+      margin-top: 0.2rem;
+      overflow-x: scroll;
+      .table {
+        min-width: 64rem;
+      }
+    }
+
+    .update-time-wrapper {
+      display: none;
+    }
+  }
+}

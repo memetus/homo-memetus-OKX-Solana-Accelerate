@@ -1,0 +1,166 @@
+@import '@/styles/_mixin.scss';
+
+.toast {
+  width: 26rem;
+  height: 6.25rem;
+  z-index: 99999999999999;
+  padding: 0.75rem 1rem 1rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--CONSTANT);
+  border-radius: 0.6rem;
+  gap: 0.8rem;
+  box-shadow: 0 0 1rem 0.1rem var(--DYNAMIC);
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  animation-name: slideFromRight;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+
+  .icon-wrapper {
+    aspect-ratio: 1/1;
+
+    .icon {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
+
+  .text-wrapper {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.2;
+
+    .title {
+      font-size: 1rem;
+      color: var(--DYNAMIC);
+      font-family: var(--FONT-FRAGMENT-MONO);
+    }
+
+    .desc {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      color: var(--DYNAMIC);
+      font-family: var(--FONT-FRAGMENT-MONO);
+    }
+  }
+}
+
+.toast-hide {
+  animation-name: slideToRight;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes slideFromRight {
+  0% {
+    display: none;
+    right: 2rem;
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
+  100% {
+    display: flex;
+    right: 2rem;
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slideToRight {
+  0% {
+    display: flex;
+    right: 2rem;
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+  100% {
+    display: none;
+    right: 2rem;
+    opacity: 0;
+    transform: translate(100%, 0);
+  }
+}
+
+@include mobile {
+  .toast {
+    width: 90%;
+    height: 6.25rem;
+    z-index: 99999999999999;
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation-name: slideFromTop;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+  }
+
+  .toast-hide {
+    animation-name: slideToTop;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+  }
+}
+
+@include tablet {
+  .toast {
+    width: 90%;
+    height: 6.25rem;
+    z-index: 99999999999999;
+    position: fixed;
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%, 0);
+    animation-name: slideFromTop;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+  }
+
+  .toast-hide {
+    animation-name: slideToTop;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+  }
+}
+
+@keyframes slideFromTop {
+  0% {
+    display: none;
+    top: 1rem;
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    display: flex;
+    top: 1rem;
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes slideToTop {
+  0% {
+    display: flex;
+    top: 1rem;
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  100% {
+    display: none;
+    top: 1rem;
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+}

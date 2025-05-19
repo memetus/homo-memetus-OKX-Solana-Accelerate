@@ -1,0 +1,12 @@
+.client-container {
+  width: 100%;
+  height: calc(100% - 7rem);
+  overflow: hidden;
+  position: relative;
+  margin-top: 6.25rem;
+  border-top: 1px solid var(--GRAY-1);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}

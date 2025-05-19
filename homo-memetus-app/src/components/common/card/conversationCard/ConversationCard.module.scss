@@ -1,0 +1,185 @@
+@import '@/styles/_mixin.scss';
+
+.user-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 3rem;
+
+  .inner {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+
+    .badge {
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(calc(100% + 2rem), 0);
+    }
+  }
+}
+
+.assistant-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  .inner {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+
+    .badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(calc(-100% - 2rem), 0);
+    }
+
+    .button-list {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      transform: translate(0, calc(100% + 1rem));
+      gap: 1rem;
+    }
+
+    .button-wrapper {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      transform: translate(0, calc(100% + 1rem));
+    }
+  }
+}
+
+.user-text {
+  text-align: start;
+  font-family: Arial;
+  font-size: 1.3rem;
+  color: var(--DYNAMIC);
+  font-weight: 300;
+  line-height: 2rem;
+}
+
+.assistant-text {
+  text-align: start;
+  font-family: Arial;
+  font-size: 1.3rem;
+  color: var(--DYNAMIC);
+  font-weight: 300;
+  line-height: 2rem;
+}
+
+@include laptop {
+  @media (max-width: 900px) {
+    .user-container {
+      .inner {
+        width: 90%;
+      }
+    }
+
+    .assistant-container {
+      .inner {
+        width: 90%;
+      }
+    }
+
+    .user-text {
+      font-size: 1.15rem;
+      line-height: 1.7rem;
+    }
+
+    .assistant-text {
+      font-size: 1.15rem;
+      line-height: 1.7rem;
+    }
+  }
+}
+
+@include tablet {
+  .user-container {
+    .inner {
+      width: 100%;
+
+      .badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(calc(100% + 1rem), 0);
+      }
+    }
+  }
+
+  .assistant-container {
+    .inner {
+      width: 100%;
+
+      .badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(calc(-100% - 1rem), 0);
+      }
+    }
+  }
+
+  .user-text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .assistant-text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+}
+
+@include mobile {
+  .user-container {
+    .inner {
+      width: 100%;
+      .badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(calc(100% + 1rem), 0);
+      }
+    }
+  }
+
+  .assistant-container {
+    .inner {
+      width: 100%;
+      .badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(calc(-100% - 1rem), 0);
+      }
+    }
+  }
+
+  .user-text {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+
+  .assistant-text {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+}
