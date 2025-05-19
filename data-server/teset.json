@@ -1,0 +1,272 @@
+{
+  "data": [
+    {
+      "description": "Ex-@TheSpartanGroup | Chief Chef @steak_studio | Advising @vectis_finance\n\nActively Investing in AI\n\nPitch Your Project Here: https://t.co/ccbHvicxku",
+      "profile_image_url": "https://pbs.twimg.com/profile_images/1846579538802982912/9qCfx_WU_normal.jpg",
+      "created_at": "2021-11-15T14:25:07.000Z",
+      "verified": true,
+      "parody": false,
+      "verified_type": "blue",
+      "id": "1460252469745782790",
+      "is_identity_verified": false,
+      "profile_banner_url": "https://pbs.twimg.com/profile_banners/1460252469745782790/1729093846",
+      "username": "Defi0xJeff",
+      "most_recent_tweet_id": "1905892872764989941",
+      "subscription": {
+        "subscribes_to_you": false
+      },
+      "url": "https://t.co/MhbGQO3xqF",
+      "location": "Mainframe",
+      "public_metrics": {
+        "followers_count": 64800,
+        "following_count": 837,
+        "tweet_count": 9094,
+        "listed_count": 2692,
+        "like_count": 26789,
+        "media_count": 1626
+      },
+      "name": "0xJeff",
+      "pinned_tweet_id": "1875881226151841925",
+      "subscription_type": "None",
+      "protected": false,
+      "receives_your_dm": false,
+      "entities": {
+        "url": {
+          "urls": [
+            {
+              "start": 0,
+              "end": 23,
+              "url": "https://t.co/MhbGQO3xqF",
+              "expanded_url": "https://linktr.ee/0xjeff",
+              "display_url": "linktr.ee/0xjeff"
+            }
+          ]
+        },
+        "description": {
+          "urls": [
+            {
+              "start": 126,
+              "end": 149,
+              "url": "https://t.co/ccbHvicxku",
+              "expanded_url": "https://bit.ly/PitchToJeff",
+              "display_url": "bit.ly/PitchToJeff"
+            }
+          ],
+          "mentions": [
+            {
+              "start": 3,
+              "end": 19,
+              "username": "TheSpartanGroup"
+            },
+            {
+              "start": 33,
+              "end": 46,
+              "username": "steak_studio"
+            },
+            {
+              "start": 58,
+              "end": 73,
+              "username": "vectis_finance"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "includes": {
+    "tweets": [
+      {
+        "context_annotations": [
+          {
+            "domain": {
+              "id": "46",
+              "name": "Business Taxonomy",
+              "description": "Categories within Brand Verticals that narrow down the scope of Brands"
+            },
+            "entity": {
+              "id": "1557697333571112960",
+              "name": "Technology Business",
+              "description": "Brands, companies, advertisers and every non-person handle with the profit intent related to softwares, apps, communication equipments, hardwares"
+            }
+          },
+          {
+            "domain": {
+              "id": "47",
+              "name": "Brand",
+              "description": "Brands and Companies"
+            },
+            "entity": {
+              "id": "1631434932688920576",
+              "name": "OpenAI"
+            }
+          },
+          {
+            "domain": {
+              "id": "67",
+              "name": "Interests and Hobbies",
+              "description": "Interests, opinions, and behaviors of individuals, groups, or cultures; like Speciality Cooking or Theme Parks"
+            },
+            "entity": {
+              "id": "1037076073719025664",
+              "name": "Traffic",
+              "description": "Traffic"
+            }
+          },
+          {
+            "domain": {
+              "id": "131",
+              "name": "Unified Twitter Taxonomy",
+              "description": "A taxonomy of user interests. "
+            },
+            "entity": {
+              "id": "848920371311001600",
+              "name": "Technology",
+              "description": "Technology and computing"
+            }
+          },
+          {
+            "domain": {
+              "id": "131",
+              "name": "Unified Twitter Taxonomy",
+              "description": "A taxonomy of user interests. "
+            },
+            "entity": {
+              "id": "898262889378619392",
+              "name": "Artificial intelligence",
+              "description": "Artificial Intelligence"
+            }
+          },
+          {
+            "domain": {
+              "id": "131",
+              "name": "Unified Twitter Taxonomy",
+              "description": "A taxonomy of user interests. "
+            },
+            "entity": {
+              "id": "1486271512655003652",
+              "name": "Web3"
+            }
+          },
+          {
+            "domain": {
+              "id": "165",
+              "name": "Technology",
+              "description": "for individual and types of technology, e.g., food technology, 3D printing"
+            },
+            "entity": {
+              "id": "848920371311001600",
+              "name": "Technology",
+              "description": "Technology and computing"
+            }
+          },
+          {
+            "domain": {
+              "id": "165",
+              "name": "Technology",
+              "description": "for individual and types of technology, e.g., food technology, 3D printing"
+            },
+            "entity": {
+              "id": "898262889378619392",
+              "name": "Artificial intelligence",
+              "description": "Artificial Intelligence"
+            }
+          }
+        ],
+        "public_metrics": {
+          "retweet_count": 10,
+          "reply_count": 13,
+          "like_count": 62,
+          "quote_count": 3,
+          "bookmark_count": 16,
+          "impression_count": 9795
+        },
+        "entities": {
+          "urls": [
+            {
+              "start": 280,
+              "end": 303,
+              "url": "https://t.co/QjIwSbTrfN",
+              "expanded_url": "https://x.com/Defi0xJeff/status/1905892872764989941/photo/1",
+              "display_url": "pic.x.com/QjIwSbTrfN",
+              "media_key": "3_1905892627297468416"
+            },
+            {
+              "start": 304,
+              "end": 327,
+              "url": "https://t.co/KcU98K3CQk",
+              "expanded_url": "https://twitter.com/Defi0xJeff/status/1905155746582655120",
+              "display_url": "x.com/Defi0xJeff/sta…"
+            }
+          ],
+          "annotations": [
+            {
+              "start": 11,
+              "end": 12,
+              "probability": 0.5341,
+              "type": "Organization",
+              "normalized_text": "AI"
+            },
+            {
+              "start": 269,
+              "end": 274,
+              "probability": 0.793,
+              "type": "Organization",
+              "normalized_text": ". Open"
+            }
+          ]
+        },
+        "reply_settings": "everyone",
+        "author_id": "1460252469745782790",
+        "id": "1905892872764989941",
+        "attachments": {
+          "media_keys": ["3_1905892627297468416"]
+        },
+        "referenced_tweets": [
+          {
+            "type": "quoted",
+            "id": "1905155746582655120"
+          }
+        ],
+        "text": "Generative AI landscape has experienced significant growth and transformation over the past year.\n\nKey trends include:​\n\n1. Rapid Growth in Generative AI Services\n• Between February 1, 2024, and March 1, 2025, monthly traffic to generative AI services increased by 251%. OpenAI's https://t.co/QjIwSbTrfN https://t.co/KcU98K3CQk",
+        "created_at": "2025-03-29T08:00:45.000Z",
+        "lang": "en",
+        "edit_history_tweet_ids": ["1905892872764989941"],
+        "conversation_id": "1905892872764989941"
+      },
+      {
+        "article": {
+          "title": "DeFAI is the New DeFi"
+        },
+        "public_metrics": {
+          "retweet_count": 669,
+          "reply_count": 445,
+          "like_count": 2933,
+          "quote_count": 195,
+          "bookmark_count": 2228,
+          "impression_count": 594504
+        },
+        "entities": {
+          "urls": [
+            {
+              "start": 0,
+              "end": 23,
+              "url": "https://t.co/8QvGuCxGMb",
+              "expanded_url": "http://x.com/i/article/1875878754414948352",
+              "display_url": "x.com/i/article/1875…",
+              "status": 500,
+              "unwound_url": "https://x.com/i/article/1875878754414948352"
+            }
+          ]
+        },
+        "reply_settings": "everyone",
+        "author_id": "1460252469745782790",
+        "id": "1875881226151841925",
+        "text": "https://t.co/8QvGuCxGMb",
+        "created_at": "2025-01-05T12:25:11.000Z",
+        "lang": "zxx",
+        "edit_history_tweet_ids": ["1875881226151841925"],
+        "conversation_id": "1875881226151841925"
+      }
+    ]
+  }
+}
