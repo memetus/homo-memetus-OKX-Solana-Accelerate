@@ -1,0 +1,125 @@
+{
+  "totalCount": 14,
+  "results": [
+    {
+      "fundId": "6797719d22b27e6edc643d79",
+      "name": "hPRICE",
+      "generation": 2,
+      "strategyPrompt": "Scout early-stage AI meme coins on Coingecko. Verify tokenomics and developer credentials. Take initial investment at 2x, then 25% profits at each 100% gain.",
+      "nav": 117.42,
+      "realizedProfit": 0,
+      "unrealizedProfit": 17.42,
+      "totalPnL": 17.42,
+      "survived": true,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    },
+    {
+      "fundId": "679b790938a081ee82000b8d",
+      "name": "hNEW",
+      "generation": 1,
+      "strategyPrompt": "Invest in new AI Agent projects with 10% stop-loss. Sell 100% if investment doubles.",
+      "nav": 109.98,
+      "realizedProfit": 0,
+      "unrealizedProfit": 9.98,
+      "totalPnL": 9.98,
+      "survived": true,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    },
+    {
+      "fundId": "679b794338a081ee82000b95",
+      "name": "hCULT",
+      "generation": 1,
+      "strategyPrompt": "Invest in AI/meme coins under $1M market cap with strong communities. Take initial investment at 2x, then 25% at every 5x gain. Use 30% stop-loss.",
+      "nav": 110.54,
+      "realizedProfit": 1.79,
+      "unrealizedProfit": 8.75,
+      "totalPnL": 10.54,
+      "survived": false,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    },
+    {
+      "fundId": "679b795238a081ee82000b97",
+      "name": "hCATCH",
+      "generation": 1,
+      "strategyPrompt": "Monitor Twitter trending keywords and invest in newly launched tokens related to those keywords. Focus on tokens with the highest trading volume or market cap. Sell 50% of holdings when the investment reaches 10x, and sell the remaining 50% at 100x gains.",
+      "nav": 119.53,
+      "realizedProfit": 0,
+      "unrealizedProfit": 19.53,
+      "totalPnL": 19.53,
+      "survived": true,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    },
+    {
+      "fundId": "679b796038a081ee82000b99",
+      "name": "hKOL",
+      "generation": 1,
+      "strategyPrompt": "Identify tokens launched by Key Opinion Leaders (KOLs) by monitoring their social media accounts and announcements. Invest immediately upon token launch. Sell 50% of holdings at 10x gains, 25% at 100x gains, and the remaining 25% at 1000x gains.",
+      "nav": 120.88,
+      "realizedProfit": 0,
+      "unrealizedProfit": 20.88,
+      "totalPnL": 20.88,
+      "survived": true,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    },
+    {
+      "fundId": "67ad7c887294704869d292c7",
+      "name": "DADDY",
+      "generation": 3,
+      "strategyPrompt": "Focus on cryptocurrencies created or promoted by Andrew Tate, such as $DADDY or $G. Monitor his online presence for upcoming launches and invest early in promising projects",
+      "nav": 104.62,
+      "realizedProfit": 0,
+      "unrealizedProfit": 4.62,
+      "totalPnL": 4.62,
+      "survived": true,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    },
+    {
+      "fundId": "67ad7cba7294704869d292c9",
+      "name": "tBRAND",
+      "generation": 2,
+      "strategyPrompt": "Invest in tokens that align with Andrew Tate's brand and messaging. Look for coins that emphasize masculinity, wealth-building, or non-traditional learning methods popular among his followers.",
+      "nav": 116.16,
+      "realizedProfit": 0,
+      "unrealizedProfit": 16.16,
+      "totalPnL": 16.16,
+      "survived": true,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    },
+    {
+      "fundId": "679b78cb38a081ee82000b89",
+      "name": "hCOPY",
+      "generation": 1,
+      "strategyPrompt": "Copy trade the most high-performing wallets. Buy when multiple trusted wallets purchase. Exit if 50% of tracked wallets sell.",
+      "nav": 100.55,
+      "realizedProfit": 0,
+      "unrealizedProfit": 0.55,
+      "totalPnL": 0.55,
+      "survived": true,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    },
+    {
+      "fundId": "679b793538a081ee82000b93",
+      "name": "hVOL",
+      "generation": 1,
+      "strategyPrompt": "Target high-volume AI meme coins on pumpfun with $10M+ daily volume. Take initial investment at 50% gain, then 25% at each 100% gain.",
+      "nav": 125.52,
+      "realizedProfit": 0,
+      "unrealizedProfit": 25.52,
+      "totalPnL": 25.52,
+      "survived": true,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    },
+    {
+      "fundId": "679b796c38a081ee82000b9b",
+      "name": "hNEWS",
+      "generation": 1,
+      "strategyPrompt": "Analyze Google News and TikTok trends to identify popular keywords or themes. Search for newly launched tokens related to these trends, prioritizing those with the highest market cap. Invest in the most promising tokens. Sell 50% of holdings at 2x gains, 25% at 10x gains, and the remaining 25% at 100x gains.",
+      "nav": 132.64,
+      "realizedProfit": 0,
+      "unrealizedProfit": 32.64,
+      "totalPnL": 32.64,
+      "survived": true,
+      "createdAt": "2025-03-07T22:00:00.000Z"
+    }
+  ]
+}
