@@ -17,10 +17,10 @@ export class RealTradingController {
     return this.sendaiService.getBalance();
   }
 
-  @Post('trade')
-  async trade(@Body() createSwapDto: CreateSwapDto) {
-    return this.sendaiService.executeSwap(createSwapDto);
-  }
+  // @Post('trade')
+  // async trade(@Body() createSwapDto: CreateSwapDto) {
+  //   return this.sendaiService.executeSwap(createSwapDto);
+  // }
 
   @Get('signature')
   @ApiQuery({ name: 'signature', required: true })
@@ -43,13 +43,23 @@ export class RealTradingController {
     return this.realTradingService.fundRealTrading();
   }
 
-  @Post('execute-swap')
-  async executeSwap(@Body() createSwapDto: CreateSwapDto) {
-    return this.sendaiService.executeSwap(createSwapDto);
-  }
+  // @Post('execute-swap')
+  // async executeSwap(@Body() createSwapDto: CreateSwapDto) {
+  //   return this.sendaiService.executeSwap(createSwapDto);
+  // }
 
   @Get('tokens')
   async getTokens() {
     return this.sendaiService.getTokens();
+  }
+
+  @Post('quote')
+  async getQuote(@Body() createSwapDto: CreateSwapDto) {
+    return this.sendaiService.getQuote(createSwapDto);
+  }
+
+  @Post('trade')
+  async trade(@Body() createSwapDto: CreateSwapDto) {
+    return this.sendaiService.executeSwap(createSwapDto);
   }
 }

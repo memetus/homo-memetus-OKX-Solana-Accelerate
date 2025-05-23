@@ -31,7 +31,7 @@ export class SentryInterceptor implements NestInterceptor {
         webhook.send({
           attachments: [
             {
-              text: 'dev Error',
+              text: 'dev-onikuma Error',
               fields: [
                 {
                   title: `Error message: ${error.response?.message || error.message}`,

@@ -45,6 +45,8 @@ export class RealTradingService {
           fundData._id.toString(),
         );
 
+        console.log(recommend);
+
         const balance = await this.sendaiService.getBalance();
         const totalTokenNav = fundData.portfolio.reduce((total, position) => {
           return total + position.nav;
@@ -69,36 +71,37 @@ export class RealTradingService {
                 : 0;
 
               const allocationDifference = coin.allocation - currentAllocation;
-              const buyAmount = Number(
-                ((totalFund * allocationDifference) / 100).toFixed(3),
-              );
+              const buyAmount = (
+                (totalFund * allocationDifference) /
+                100
+              ).toFixed(3);
 
               // buyAmount가 0보다 클 때만 거래 실행
-              if (buyAmount <= 0) {
+              if (parseFloat(buyAmount) <= 0) {
                 continue;
               }
 
               const swap = await this.sendaiService.executeSwap({
                 amount: buyAmount,
-                fromTokenAddress: 'So11111111111111111111111111111111111111112',
+                fromTokenAddress: '11111111111111111111111111111111',
                 toTokenAddress: coin.address,
-                slippage: 1,
+                slippage: '1',
               });
 
-              // 5초 대기 후 5번까지 재시도
+              // Retry up to 10 times with 5 second intervals
               let txResult;
-              for (let i = 0; i < 5; i++) {
+              for (let i = 0; i < 10; i++) {
                 try {
-                  await new Promise((resolve) => setTimeout(resolve, 5000)); // 5초 대기
+                  await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait 5 seconds
                   txResult = await this.sendaiService.parseTransaction(
-                    swap.transactionId,
+                    swap.signature,
                   );
-                  break; // 성공하면 루프 종료
+                  break; // Exit loop if successful
                 } catch (parseError) {
-                  if (i === 4) {
-                    // 마지막 시도까지 실패
+                  if (i === 9) {
+                    // Failed after all attempts
                     throw new Error(
-                      `Transaction parsing failed after 5 attempts: ${swap.transactionId}`,
+                      `Transaction parsing failed after 10 attempts: ${swap.signature}`,
                     );
                   }
                 }
@@ -118,7 +121,7 @@ export class RealTradingService {
                 txHash: swap.transactionId,
               });
 
-              // Portfolio 업데이트를 위한 데이터 준비
+              // Prepare data for portfolio update
               const portfolioUpdates = new Map();
               portfolioUpdates.set(coin.address, {
                 amount: txResult.outputAmount,
@@ -126,14 +129,14 @@ export class RealTradingService {
                 tradingAmount: txResult.inputAmount,
               });
 
-              // FundData 업데이트
+              // Update FundData
               const existingPosition = fundData.portfolio.find(
                 (p) => p.address === coin.address,
               );
 
               const updateQuery = existingPosition
                 ? {
-                    // 기존 포지션 업데이트
+                    // Update existing position
                     $set: {
                       'portfolio.$[elem].amount': txResult.outputAmount,
                       'portfolio.$[elem].allocation': coin.allocation,
@@ -141,7 +144,7 @@ export class RealTradingService {
                     },
                   }
                 : {
-                    // 새 포지션 추가
+                    // Add new position
                     $push: {
                       portfolio: {
                         symbol: coin.symbol,
@@ -199,27 +202,32 @@ export class RealTradingService {
                 continue;
               }
 
+              const sellAmount = (
+                (totalFund * allocationDifference) /
+                100
+              ).toFixed(3);
+
               const swap = await this.sendaiService.executeSwap({
-                amount: tokenAmountToSell,
+                amount: sellAmount,
                 fromTokenAddress: coin.address,
-                toTokenAddress: 'So11111111111111111111111111111111111111112',
-                slippage: 1,
+                toTokenAddress: '11111111111111111111111111111111',
+                slippage: '1',
               });
 
-              // 5초 대기 후 5번까지 재시도
+              // Retry up to 10 times with 5 second intervals
               let txResult;
-              for (let i = 0; i < 5; i++) {
+              for (let i = 0; i < 10; i++) {
                 try {
-                  await new Promise((resolve) => setTimeout(resolve, 5000)); // 5초 대기
+                  await new Promise((resolve) => setTimeout(resolve, 5000)); // Wait 5 seconds
                   txResult = await this.sendaiService.parseTransaction(
-                    swap.transactionId,
+                    swap.signature,
                   );
-                  break; // 성공하면 루프 종료
+                  break; // Exit loop if successful
                 } catch (parseError) {
-                  if (i === 4) {
-                    // 마지막 시도까지 실패
+                  if (i === 9) {
+                    // Failed after all attempts
                     throw new Error(
-                      `Transaction parsing failed after 5 attempts: ${swap.transactionId}`,
+                      `Transaction parsing failed after 10 attempts: ${swap.signature}`,
                     );
                   }
                 }
@@ -239,7 +247,7 @@ export class RealTradingService {
                 txHash: swap.transactionId,
               });
 
-              // Portfolio 업데이트를 위한 데이터 준비
+              // Prepare data for portfolio update
               const portfolioUpdates = new Map();
               portfolioUpdates.set(coin.address, {
                 amount: txResult.outputAmount,
@@ -247,14 +255,14 @@ export class RealTradingService {
                 tradingAmount: txResult.inputAmount,
               });
 
-              // FundData 업데이트
+              // Update FundData
               const existingPosition = fundData.portfolio.find(
                 (p) => p.address === coin.address,
               );
 
               const updateQuery = existingPosition
                 ? {
-                    // 기존 포지션 업데이트
+                    // Update existing position
                     $set: {
                       'portfolio.$[elem].amount': txResult.outputAmount,
                       'portfolio.$[elem].allocation': coin.allocation,
@@ -262,7 +270,7 @@ export class RealTradingService {
                     },
                   }
                 : {
-                    // 새 포지션 추가
+                    // Add new position
                     $push: {
                       portfolio: {
                         symbol: coin.symbol,

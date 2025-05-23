@@ -6,6 +6,7 @@ import MiscPlugin from '@solana-agent-kit/plugin-misc';
 import { Keypair, PublicKey, Connection } from '@solana/web3.js';
 import { CreateSwapDto } from '../dto/req.dto';
 import { OKXDexClient } from '@okx-dex/okx-dex-sdk';
+import { createWallet } from './wallet';
 
 export interface ParseAccountResponse {
   status: 'success' | 'error';
@@ -52,8 +53,18 @@ export interface SolBalance {
 export class SendaiService implements OnModuleInit {
   private agent: ExtendedSolanaAgentKit;
   private okxDexClient: OKXDexClient;
+  private readonly wallet: any;
 
-  constructor(private configService: ConfigService) {}
+  constructor(private configService: ConfigService) {
+    const connection = new Connection(
+      this.configService.get<string>('SOLANA_RPC_URL'),
+    );
+
+    this.wallet = createWallet(
+      this.configService.get<string>('WALLET_KEY'),
+      connection,
+    );
+  }
 
   onModuleInit() {
     this.initializeAgent();
@@ -83,33 +94,14 @@ export class SendaiService implements OnModuleInit {
   }
 
   private async initializeOKXDexClient() {
-    const apiKey = this.configService.get<string>('OKX_API_KEY');
-    const secretKey = this.configService.get<string>('OKX_SECRET_KEY');
-    const apiPassphrase = this.configService.get<string>('OKX_API_PASSPHRASE');
-    const projectId = this.configService.get<string>('OKX_PROJECT_ID');
-    const rpcUrl = this.configService.get<string>('SOLANA_RPC_URL');
-    const privateKey = this.configService.get<string>('WALLET_KEY');
-
-    const bs58 = await import('bs58');
-    const keyPair = Keypair.fromSecretKey(bs58.default.decode(privateKey));
-    const connection = new Connection(rpcUrl);
-    const wallet = new KeypairWallet(keyPair, rpcUrl);
-
     try {
       this.okxDexClient = new OKXDexClient({
-        apiKey,
-        secretKey,
-        apiPassphrase,
-        projectId,
+        apiKey: this.configService.get<string>('OKX_API_KEY')!,
+        secretKey: this.configService.get<string>('OKX_SECRET_KEY')!,
+        apiPassphrase: this.configService.get<string>('OKX_API_PASSPHRASE')!,
+        projectId: this.configService.get<string>('OKX_PROJECT_ID')!,
         solana: {
-          wallet: {
-            ...wallet,
-            connection,
-            signTransaction: wallet.signTransaction.bind(wallet),
-            signAllTransactions: wallet.signAllTransactions.bind(wallet),
-            signAndSendTransaction: wallet.signAndSendTransaction.bind(wallet),
-            signMessage: wallet.signMessage.bind(wallet),
-          },
+          wallet: this.wallet,
           computeUnits: 300000,
           maxRetries: 3,
         },
@@ -121,23 +113,23 @@ export class SendaiService implements OnModuleInit {
     }
   }
 
-  async executeSwap(createSwapDto: CreateSwapDto) {
-    try {
-      const {
-        amount,
-        fromTokenAddress,
-        toTokenAddress,
-        slippage = 0.2,
-      } = createSwapDto;
+  async getQuote(createSwapDto: CreateSwapDto) {
+    const { amount, fromTokenAddress, toTokenAddress } = createSwapDto;
+    console.log('Getting quote for:', fromTokenAddress, toTokenAddress, amount);
 
-      // Get quote to fetch token information
+    try {
+      const rawAmount = (parseFloat(amount) * Math.pow(10, 9)).toString();
+      console.log('Raw amount:', rawAmount);
+
       const quote = await this.okxDexClient.dex.getQuote({
         chainId: '501',
         fromTokenAddress,
         toTokenAddress,
-        amount: '100000000', // Use a small amount for quote
-        slippage: slippage.toString(),
+        amount: rawAmount,
+        slippage: '1',
       });
+
+      console.log('Quote:', quote);
 
       const tokenInfo = {
         fromToken: {
@@ -152,31 +144,93 @@ export class SendaiService implements OnModuleInit {
         },
       };
 
-      // Convert amount to base units
-      const rawAmount = (
-        amount * Math.pow(10, tokenInfo.fromToken.decimals)
-      ).toString();
-
-      // Execute the swap
-      const result = await this.okxDexClient.dex.executeSwap({
-        chainId: '501',
-        fromTokenAddress,
-        toTokenAddress,
-        amount: rawAmount,
-        slippage: slippage.toString(),
-        userWalletAddress: this.agent.wallet.publicKey.toString(),
-      });
-
       return {
-        status: 'success',
-        transactionId: result.transactionId,
-        explorerUrl: result.explorerUrl,
-        details: result.details,
+        fromToken: tokenInfo.fromToken,
+        toToken: tokenInfo.toToken,
+        amount: amount,
+        rawAmount: rawAmount,
+        usdValue: (
+          parseFloat(amount) * parseFloat(tokenInfo.fromToken.price)
+        ).toFixed(2),
       };
     } catch (error) {
-      throw new Error(
-        `Failed to execute swap: ${error instanceof Error ? error.message : 'Unknown error'}`,
-      );
+      console.error('Error getting quote:', error);
+      throw error;
+    }
+  }
+
+  async executeSwap(createSwapDto: CreateSwapDto) {
+    try {
+      const { amount, fromTokenAddress, toTokenAddress } = createSwapDto;
+
+      console.log('Getting token information...');
+      const quote = await this.getQuote(createSwapDto);
+
+      console.log('\nSwap Details:');
+      console.log('--------------------');
+      console.log(`From: ${quote.fromToken.symbol}`);
+      console.log(`To: ${quote.toToken.symbol}`);
+      console.log(`Amount: ${amount} ${quote.fromToken.symbol}`);
+      console.log(`Amount in base units: ${quote.rawAmount}`);
+      console.log(`Approximate USD value: $${quote.usdValue}`);
+
+      // Execute the swap
+      console.log('\nExecuting swap...');
+      try {
+        const result = await this.okxDexClient.dex.executeSwap({
+          chainId: '501',
+          fromTokenAddress,
+          toTokenAddress,
+          amount: quote.rawAmount,
+          slippage: '0.2',
+          userWalletAddress: this.wallet.publicKey.toString(),
+        });
+
+        if (result.transactionId) {
+          console.log('\nSwap transaction submitted!');
+          console.log('Transaction ID:', result.transactionId);
+          console.log('Explorer URL:', result.explorerUrl);
+
+          return {
+            status: 'submitted',
+            transactionId: result.transactionId,
+            explorerUrl: result.explorerUrl,
+            message:
+              'Transaction submitted. Please check the status in Explorer.',
+          };
+        }
+      } catch (swapError: any) {
+        if (swapError.message?.includes('Blockhash not found')) {
+          console.log('Blockhash error, retrying with new blockhash...');
+          // Wait and retry
+          await new Promise((resolve) => setTimeout(resolve, 2000));
+          return this.executeSwap(createSwapDto);
+        }
+
+        // Handle successful transaction with signature
+        if (swapError.signature) {
+          console.log('\nSwap transaction submitted!');
+          console.log('Transaction signature:', swapError.signature);
+          console.log(
+            'Explorer URL:',
+            `https://solscan.io/tx/${swapError.signature}`,
+          );
+
+          return {
+            status: 'submitted',
+            signature: swapError.signature,
+            explorerUrl: `https://solscan.io/tx/${swapError.signature}`,
+            message:
+              'Transaction submitted. Please check the status in Explorer.',
+          };
+        }
+        throw swapError;
+      }
+
+      throw new Error('Transaction submission failed');
+    } catch (error) {
+      console.error('Error executing swap:', error);
+      throw error;
     }
   }
 
@@ -293,7 +347,7 @@ export class SendaiService implements OnModuleInit {
 
       const simplifiedAssets = assets
         .filter((asset) => {
-          // FungibleToken 인터페이스만 필터링
+          // Filter only FungibleToken interface
           return asset.interface === 'FungibleToken' && asset.token_info;
         })
         .map((asset) => ({
